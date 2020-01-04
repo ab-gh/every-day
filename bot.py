@@ -11,7 +11,7 @@ from time import gmtime, strftime
 
 
 def gettoken():
-    token_file = open("token.txt", "r")
+    token_file = open("/home/mbp/every-day/token.txt", "r")
     token_string = token_file.read()
     token_token = token_string.split("\n")
     bot_token = str(token_token[0])
@@ -30,7 +30,7 @@ async def on_ready():
     print(bot.user.id)
     print('------')
     user = await bot.fetch_user(173498062260404225)
-    ctx = await user.send("How are you feeling today?\nFormat is <mood number>|<today string>")
+    ctx = await user.send("How are you feeling today?\nFormat is <1 awful ~ great 5>|<today's events>")
     try:
         def check_if_dm(ctx):
             return ctx.author == user and ctx.channel == user.dm_channel
